@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { IncrementButton, DecrementButton, ResetButton, Counter } from './components'
 import './App.css'
 
 function App() {
@@ -16,35 +17,24 @@ function App() {
   }, [])
 
   return (
-    <main>
-      <h1>Counter App</h1>
-      <div className="card" role="region" aria-label="Counter display">
-        <h2 role="status">Count: {count}</h2>
-        <div className="button-group" role="group" aria-label="Counter controls">
-          <button 
-            onClick={decrement} 
-            onKeyDown={(e) => handleKeyDown(e, decrement)}
-            aria-label="Decrease counter by 1"
-          >
-            Decrement
-          </button>
-          <button 
-            onClick={reset} 
-            onKeyDown={(e) => handleKeyDown(e, reset)}
-            aria-label="Reset counter to zero"
-          >
-            Reset
-          </button>
-          <button 
-            onClick={increment} 
-            onKeyDown={(e) => handleKeyDown(e, increment)}
-            aria-label="Increase counter by 1"
-          >
-            Increment
-          </button>
+    <div className="app-container">
+      <header className="app-header">
+        <div className="app-title">
+          <span className="material-symbols-outlined app-icon">calculate</span>
+          <h1>Counter</h1>
         </div>
+      </header>
+      
+      <div className="counter-section">
+        <Counter value={count} />
       </div>
-    </main>
+
+      <div className="button-group" role="group" aria-label="Counter controls">
+        <DecrementButton onClick={decrement} onKeyDown={(e) => handleKeyDown(e, decrement)} ariaLabel="Decrease count by 1" icon={<span className="btn-icon-text">−</span>} />
+        <ResetButton onClick={reset} onKeyDown={(e) => handleKeyDown(e, reset)} ariaLabel="Reset counter to zero" />
+        <IncrementButton onClick={increment} onKeyDown={(e) => handleKeyDown(e, increment)} ariaLabel="Increase count by 1" icon={<span className="btn-icon-text">+</span>} />
+      </div>
+    </div>
   )
 }
 
