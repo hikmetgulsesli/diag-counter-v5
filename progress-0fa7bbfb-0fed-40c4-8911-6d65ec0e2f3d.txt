@@ -1,3 +1,15 @@
+=== US-005: Accessibility Implementation ===
+COMPLETED: 2026-03-10T18:56:00+03:00
+FILES CHANGED: src/App.tsx, src/App.css, src/components/Button.tsx
+KEY DECISIONS: Added keyboard navigation (Enter/Space to activate buttons), aria-labels to all buttons, aria-live region for counter, role="group" for button container, used useCallback for handleKeyDown optimization.
+DEPENDENCIES ADDED: None
+
+=== US-004: App Layout & Responsive Styling ===
+COMPLETED: 2026-03-10T18:10:00+03:00
+FILES CHANGED: src/App.tsx, src/App.css, src/components/Counter.tsx, src/components/Button.tsx, src/components/DecrementButton.tsx, src/components/IncrementButton.tsx, src/components/ResetButton.tsx
+KEY DECISIONS: Used glass-card design with backdrop-filter blur from Stitch HTML. Implemented responsive CSS for mobile. Used design from stitch tokens/design-tokens.css. Wired Counter and all three button components in App.tsx.
+DEPENDENCIES ADDED: None (using Google Fonts CDN)
+
 === US-001: Project Setup & Design Tokens ===
 COMPLETED: 2026-03-10T16:48:00+03:00
 FILES CHANGED:

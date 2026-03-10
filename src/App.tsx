@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { IncrementButton, DecrementButton, ResetButton, Counter } from './components'
 import './App.css'
 
@@ -8,6 +8,13 @@ function App() {
   const increment = () => setCount(c => c + 1)
   const decrement = () => setCount(c => c - 1)
   const reset = () => setCount(0)
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLButtonElement>, action: () => void) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      action()
+    }
+  }, [])
 
   return (
     <div className="app-container">
@@ -22,10 +29,10 @@ function App() {
         <Counter value={count} />
       </div>
 
-      <div className="button-group">
-        <DecrementButton onClick={decrement} ariaLabel="Decrease count" icon={<span className="btn-icon-text">−</span>} />
-        <ResetButton onClick={reset} ariaLabel="Reset counter" />
-        <IncrementButton onClick={increment} ariaLabel="Increase count" icon={<span className="btn-icon-text">+</span>} />
+      <div className="button-group" role="group" aria-label="Counter controls">
+        <DecrementButton onClick={decrement} onKeyDown={(e) => handleKeyDown(e, decrement)} ariaLabel="Decrease count by 1" icon={<span className="btn-icon-text">−</span>} />
+        <ResetButton onClick={reset} onKeyDown={(e) => handleKeyDown(e, reset)} ariaLabel="Reset counter to zero" />
+        <IncrementButton onClick={increment} onKeyDown={(e) => handleKeyDown(e, increment)} ariaLabel="Increase count by 1" icon={<span className="btn-icon-text">+</span>} />
       </div>
     </div>
   )
