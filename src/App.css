@@ -5,6 +5,12 @@
   text-align: center;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .card {
   padding: 2em;
 }
@@ -22,7 +28,7 @@ button {
   font-family: inherit;
   cursor: pointer;
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   background-color: #1a1a1a;
   color: #f9f9f9;
   transition: border-color 0.25s;
@@ -30,6 +36,11 @@ button {
 
 button:hover {
   border-color: #646cff;
+}
+
+button:focus {
+  outline: 3px solid #646cff;
+  outline-offset: 2px;
 }
 
 button:active {

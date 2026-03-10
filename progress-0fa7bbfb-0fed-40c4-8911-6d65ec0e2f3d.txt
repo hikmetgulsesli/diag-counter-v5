@@ -1,0 +1,5 @@
+=== US-004: App Layout & Responsive Styling ===
+COMPLETED: 2026-03-10T18:10:00+03:00
+FILES CHANGED: src/App.tsx, src/App.css, src/components/Counter.tsx, src/components/Button.tsx, src/components/DecrementButton.tsx, src/components/IncrementButton.tsx, src/components/ResetButton.tsx
+KEY DECISIONS: Used glass-card design with backdrop-filter blur from Stitch HTML. Implemented responsive CSS for mobile. Used design from stitch tokens/design-tokens.css. Wired Counter and all three button components in App.tsx.
+DEPENDENCIES ADDED: None (using Google Fonts CDN)
