@@ -1,0 +1,19 @@
+/* design-tokens.css — auto-generated from Stitch HTML */
+:root {
+  --color-primary: #20d3ee;
+  --color-background-light: #f6f8f8;
+  --color-background-dark: #101f22;
+  --color-background-app: #18181b;
+  --color-text-default: #fafafa;
+  --color-text-heading: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-display: #fafafa;
+  --color-primary-hover-bg: rgba(32, 211, 238, 0.1);
+  --font-display: Space Grotesk, sans-serif;
+  --font-body: DM Sans, sans-serif;
+  --radius-default: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+  --font-google-0: Space Grotesk;
+}
