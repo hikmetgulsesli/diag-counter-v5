@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface ButtonProps {
+export interface ButtonProps {
   label?: string;
   onClick: () => void;
   variant?: 'primary' | 'secondary' | 'icon';
@@ -26,5 +26,43 @@ export const Button: React.FC<ButtonProps> = ({
     >
       {icon || label}
     </button>
+  );
+};
+
+interface IconButtonProps {
+  onClick: () => void;
+  ariaLabel: string;
+  icon: React.ReactNode;
+}
+
+export const IncrementButton: React.FC<IconButtonProps> = ({ onClick, ariaLabel, icon }) => (
+  <Button variant="icon" onClick={onClick} ariaLabel={ariaLabel} icon={icon} />
+);
+
+export const DecrementButton: React.FC<IconButtonProps> = ({ onClick, ariaLabel, icon }) => (
+  <Button variant="icon" onClick={onClick} ariaLabel={ariaLabel} icon={icon} />
+);
+
+interface ResetButtonProps {
+  onClick: () => void;
+  ariaLabel: string;
+}
+
+export const ResetButton: React.FC<ResetButtonProps> = ({ onClick, ariaLabel }) => (
+  <Button variant="secondary" onClick={onClick} ariaLabel={ariaLabel} label="Reset" />
+);
+
+// Counter component - displays the current count value
+interface CounterProps {
+  value: number;
+}
+
+export const Counter: React.FC<CounterProps> = ({ value }) => {
+  return (
+    <div className="counter">
+      <div className="counter-display">
+        <span className="counter-value">{value}</span>
+      </div>
+    </div>
   );
 };
