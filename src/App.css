@@ -1,47 +1,69 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: 
+    radial-gradient(ellipse at top, rgba(32, 211, 238, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+    #18181b;
+  padding: 1rem;
 }
 
-.card {
-  padding: 2em;
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  max-width: 400px;
+  width: 100%;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.card-header .icon {
+  color: #20d3ee;
+}
+
+.card-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fafafa;
+  margin: 0;
+}
+
+.counter-display {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.count-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #20d3ee;
+  line-height: 1;
+  display: block;
+  text-align: center;
 }
 
 .button-group {
   display: flex;
   gap: 1rem;
   justify-content: center;
-}
-
-button {
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  background-color: #1a1a1a;
-  color: #f9f9f9;
-  transition: border-color 0.25s;
-}
-
-button:hover {
-  border-color: #646cff;
-}
-
-button:active {
-  transform: scale(0.98);
-}
-
-h1 {
-  font-size: 2.5em;
-  line-height: 1.1;
-}
-
-h2 {
-  font-size: 2em;
-  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }

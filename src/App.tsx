@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Calculator } from 'lucide-react'
+import { IncrementButton, DecrementButton, ResetButton } from './components/Button'
 import './App.css'
 
 function App() {
@@ -9,17 +11,24 @@ function App() {
   const reset = () => setCount(0)
 
   return (
-    <>
-      <h1>Counter App</h1>
-      <div className="card">
-        <h2>Count: {count}</h2>
+    <div className="app-container">
+      <div className="glass-card">
+        <header className="card-header">
+          <Calculator size={32} className="icon" />
+          <h1>Counter</h1>
+        </header>
+        
+        <div className="counter-display">
+          <span className="count-value">{count}</span>
+        </div>
+
         <div className="button-group">
-          <button onClick={decrement}>Decrement</button>
-          <button onClick={reset}>Reset</button>
-          <button onClick={increment}>Increment</button>
+          <DecrementButton onClick={decrement} aria-label="Decrease count" />
+          <ResetButton onClick={reset} aria-label="Reset counter" />
+          <IncrementButton onClick={increment} aria-label="Increase count" />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
