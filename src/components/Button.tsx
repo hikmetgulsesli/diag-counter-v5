@@ -1,49 +1,68 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react'
-import './Button.css'
+import React from 'react';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'danger'
-  size?: 'sm' | 'md' | 'lg'
-  children: ReactNode
+export interface ButtonProps {
+  label?: string;
+  onClick: () => void;
+  variant?: 'primary' | 'secondary' | 'icon';
+  icon?: React.ReactNode;
+  ariaLabel?: string;
 }
 
-export function Button({
-  variant = 'primary',
-  size = 'md',
-  className = '',
-  children,
-  ...props
-}: ButtonProps) {
+export const Button: React.FC<ButtonProps> = ({ 
+  label, 
+  onClick, 
+  variant = 'primary', 
+  icon,
+  ariaLabel 
+}) => {
+  const baseClass = variant === 'icon' ? 'btn-icon' : 'btn';
+  const variantClass = variant === 'secondary' ? 'btn-secondary' : 'btn-primary';
+  
   return (
     <button
-      className={`btn btn-${variant} btn-${size} ${className}`}
-      {...props}
+      className={`${baseClass} ${variantClass}`}
+      onClick={onClick}
+      aria-label={ariaLabel}
     >
-      {children}
+      {icon || label}
     </button>
-  )
+  );
+};
+
+interface IconButtonProps {
+  onClick: () => void;
+  ariaLabel: string;
+  icon: React.ReactNode;
 }
 
-export function IncrementButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
-  return (
-    <Button variant="primary" size="lg" {...props}>
-      +
-    </Button>
-  )
+export const IncrementButton: React.FC<IconButtonProps> = ({ onClick, ariaLabel, icon }) => (
+  <Button variant="icon" onClick={onClick} ariaLabel={ariaLabel} icon={icon} />
+);
+
+export const DecrementButton: React.FC<IconButtonProps> = ({ onClick, ariaLabel, icon }) => (
+  <Button variant="icon" onClick={onClick} ariaLabel={ariaLabel} icon={icon} />
+);
+
+interface ResetButtonProps {
+  onClick: () => void;
+  ariaLabel: string;
 }
 
-export function DecrementButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
-  return (
-    <Button variant="secondary" size="lg" {...props}>
-      -
-    </Button>
-  )
+export const ResetButton: React.FC<ResetButtonProps> = ({ onClick, ariaLabel }) => (
+  <Button variant="secondary" onClick={onClick} ariaLabel={ariaLabel} label="Reset" />
+);
+
+// Counter component - displays the current count value
+interface CounterProps {
+  value: number;
 }
 
-export function ResetButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
+export const Counter: React.FC<CounterProps> = ({ value }) => {
   return (
-    <Button variant="danger" size="md" {...props}>
-      Reset
-    </Button>
-  )
-}
+    <div className="counter">
+      <div className="counter-display">
+        <span className="counter-value">{value}</span>
+      </div>
+    </div>
+  );
+};

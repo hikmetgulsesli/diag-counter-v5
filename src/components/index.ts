@@ -1,2 +1,2 @@
-export { Button, IncrementButton, DecrementButton, ResetButton } from './Button'
+export { Button, IncrementButton, DecrementButton, ResetButton, Counter } from './Button'
 export type { ButtonProps } from './Button'
