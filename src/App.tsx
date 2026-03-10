@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Calculator, Settings, Plus, Minus } from 'lucide-react'
 import './App.css'
 
 function App() {
@@ -9,17 +10,33 @@ function App() {
   const reset = () => setCount(0)
 
   return (
-    <>
-      <h1>Counter App</h1>
-      <div className="card">
-        <h2>Count: {count}</h2>
-        <div className="button-group">
-          <button onClick={decrement}>Decrement</button>
-          <button onClick={reset}>Reset</button>
-          <button onClick={increment}>Increment</button>
+    <div className="glass-card counter-container">
+      <header className="header">
+        <div className="header-left">
+          <Calculator className="header-icon" />
+          <h1 className="header-title">Counter App</h1>
         </div>
+        <button aria-label="Settings" className="settings-button">
+          <Settings />
+        </button>
+      </header>
+      
+      <div className="count-display">
+        <span className="count-value">{count}</span>
       </div>
-    </>
+      
+      <div className="button-group">
+        <button aria-label="Decrease" className="icon-button" onClick={decrement}>
+          <Minus />
+        </button>
+        <button className="reset-button" onClick={reset}>
+          Reset
+        </button>
+        <button aria-label="Increase" className="icon-button" onClick={increment}>
+          <Plus />
+        </button>
+      </div>
+    </div>
   )
 }
 
