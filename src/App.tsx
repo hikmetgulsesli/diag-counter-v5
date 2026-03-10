@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Calculator, Settings, Plus, Minus } from 'lucide-react'
+import { Calculator } from 'lucide-react'
+import { IncrementButton, DecrementButton, ResetButton } from './components/Button'
 import './App.css'
 
 function App() {
@@ -10,31 +11,22 @@ function App() {
   const reset = () => setCount(0)
 
   return (
-    <div className="glass-card counter-container">
-      <header className="header">
-        <div className="header-left">
-          <Calculator className="header-icon" />
-          <h1 className="header-title">Counter App</h1>
+    <div className="app-container">
+      <div className="glass-card">
+        <header className="card-header">
+          <Calculator size={32} className="icon" />
+          <h1>Counter</h1>
+        </header>
+        
+        <div className="counter-display">
+          <span className="count-value">{count}</span>
         </div>
-        <button aria-label="Settings" className="settings-button">
-          <Settings />
-        </button>
-      </header>
-      
-      <div className="count-display">
-        <span className="count-value">{count}</span>
-      </div>
-      
-      <div className="button-group">
-        <button aria-label="Decrease" className="icon-button" onClick={decrement}>
-          <Minus />
-        </button>
-        <button className="reset-button" onClick={reset}>
-          Reset
-        </button>
-        <button aria-label="Increase" className="icon-button" onClick={increment}>
-          <Plus />
-        </button>
+
+        <div className="button-group">
+          <DecrementButton onClick={decrement} aria-label="Decrease count" />
+          <ResetButton onClick={reset} aria-label="Reset counter" />
+          <IncrementButton onClick={increment} aria-label="Increase count" />
+        </div>
       </div>
     </div>
   )

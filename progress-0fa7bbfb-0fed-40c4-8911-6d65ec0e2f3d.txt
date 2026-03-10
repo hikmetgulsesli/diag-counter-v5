@@ -1,0 +1,17 @@
+=== US-001: Project Setup & Design Tokens ===
+COMPLETED: 2026-03-10T16:48:00+03:00
+FILES CHANGED:
+  - index.html (updated title)
+  - package.json (added lucide-react)
+  - package-lock.json (lockfile update)
+  - src/App.css (complete rewrite with glass card styling)
+  - src/App.tsx (rewritten with Lucide icons and new UI)
+  - src/index.css (added Google Fonts import and design tokens)
+KEY DECISIONS:
+  - Used Lucide React for icons (Plus, Minus, Calculator, Settings)
+  - Implemented glass morphism design from Stitch spec
+  - Primary color: #20d3ee (cyan accent)
+  - Dark background: #18181b
+  - Space Grotesk for display/headings, DM Sans for body text
+DEPENDENCIES ADDED:
+  - lucide-react (for UI icons)
