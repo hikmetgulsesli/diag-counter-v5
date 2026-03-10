@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react'
-import { IncrementButton, DecrementButton, ResetButton, Counter } from './components'
+import { Calculator, Settings } from 'lucide-react'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
-  const increment = () => setCount(c => c + 1)
-  const decrement = () => setCount(c => c - 1)
+  const increment = () => setCount((c) => c + 1)
+  const decrement = () => setCount((c) => c - 1)
   const reset = () => setCount(0)
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLButtonElement>, action: () => void) => {
@@ -20,19 +20,49 @@ function App() {
     <div className="app-container">
       <header className="app-header">
         <div className="app-title">
-          <span className="material-symbols-outlined app-icon">calculate</span>
+          <Calculator className="app-icon" />
           <h1>Counter</h1>
         </div>
+        <button 
+          aria-label="Settings" 
+          className="settings-btn"
+          onKeyDown={(e) => handleKeyDown(e, () => {})}
+        >
+          <Settings />
+        </button>
       </header>
       
       <div className="counter-section">
-        <Counter value={count} />
+        <div className="counter-display">
+          <span className="counter-value" aria-live="polite">{count}</span>
+        </div>
       </div>
-
+      
       <div className="button-group" role="group" aria-label="Counter controls">
-        <DecrementButton onClick={decrement} onKeyDown={(e) => handleKeyDown(e, decrement)} ariaLabel="Decrease count by 1" icon={<span className="btn-icon-text">−</span>} />
-        <ResetButton onClick={reset} onKeyDown={(e) => handleKeyDown(e, reset)} ariaLabel="Reset counter to zero" />
-        <IncrementButton onClick={increment} onKeyDown={(e) => handleKeyDown(e, increment)} ariaLabel="Increase count by 1" icon={<span className="btn-icon-text">+</span>} />
+        <button 
+          aria-label="Decrease count by 1" 
+          className="btn btn-icon" 
+          onClick={decrement}
+          onKeyDown={(e) => handleKeyDown(e, decrement)}
+        >
+          <span className="btn-icon-text">−</span>
+        </button>
+        <button 
+          className="btn btn-primary" 
+          onClick={reset}
+          onKeyDown={(e) => handleKeyDown(e, reset)}
+          aria-label="Reset counter to zero"
+        >
+          Reset
+        </button>
+        <button 
+          aria-label="Increase count by 1" 
+          className="btn btn-icon" 
+          onClick={increment}
+          onKeyDown={(e) => handleKeyDown(e, increment)}
+        >
+          <span className="btn-icon-text">+</span>
+        </button>
       </div>
     </div>
   )
