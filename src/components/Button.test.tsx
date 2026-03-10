@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { Button, IncrementButton, DecrementButton, ResetButton } from '../Button'
+import { Button, IncrementButton, DecrementButton, ResetButton } from '../components'
 
 describe('Button', () => {
   it('renders with children', () => {
