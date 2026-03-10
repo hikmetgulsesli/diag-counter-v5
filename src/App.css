@@ -142,13 +142,32 @@ body {
   font-family: var(--font-body);
 }
 
-.btn:focus {
+.btn:focus,
+button:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 
 .btn:active {
   transform: scale(0.98);
+}
+
+/* Primary button (default) */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-background-main);
+  border: 2px solid var(--color-primary);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--color-primary);
 }
 
 /* Icon button (Decrement/Increment) */
@@ -166,11 +185,6 @@ body {
 
 .btn-icon:hover {
   background: rgba(32, 211, 238, 0.1);
-}
-
-.btn-icon:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
 }
 
 .btn-icon-text {
@@ -193,11 +207,6 @@ body {
 
 .btn-secondary:hover {
   background: rgba(32, 211, 238, 0.1);
-}
-
-.btn-secondary:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
 }
 
 /* Responsive design */
