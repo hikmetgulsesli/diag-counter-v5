@@ -34,25 +34,27 @@ export const Button: React.FC<ButtonProps> = ({
 
 interface IconButtonProps {
   onClick: () => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
   ariaLabel: string;
   icon: React.ReactNode;
 }
 
-export const IncrementButton: React.FC<IconButtonProps> = ({ onClick, ariaLabel, icon }) => (
-  <Button variant="icon" onClick={onClick} ariaLabel={ariaLabel} icon={icon} />
+export const IncrementButton: React.FC<IconButtonProps> = ({ onClick, onKeyDown, ariaLabel, icon }) => (
+  <Button variant="icon" onClick={onClick} onKeyDown={onKeyDown} ariaLabel={ariaLabel} icon={icon} />
 );
 
-export const DecrementButton: React.FC<IconButtonProps> = ({ onClick, ariaLabel, icon }) => (
-  <Button variant="icon" onClick={onClick} ariaLabel={ariaLabel} icon={icon} />
+export const DecrementButton: React.FC<IconButtonProps> = ({ onClick, onKeyDown, ariaLabel, icon }) => (
+  <Button variant="icon" onClick={onClick} onKeyDown={onKeyDown} ariaLabel={ariaLabel} icon={icon} />
 );
 
 interface ResetButtonProps {
   onClick: () => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLButtonElement>) => void;
   ariaLabel: string;
 }
 
-export const ResetButton: React.FC<ResetButtonProps> = ({ onClick, ariaLabel }) => (
-  <Button variant="secondary" onClick={onClick} ariaLabel={ariaLabel} label="Reset" />
+export const ResetButton: React.FC<ResetButtonProps> = ({ onClick, onKeyDown, ariaLabel }) => (
+  <Button variant="secondary" onClick={onClick} onKeyDown={onKeyDown} ariaLabel={ariaLabel} label="Reset" />
 );
 
 // Counter component - displays the current count value
