@@ -1,51 +1,109 @@
-.header {
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('./stitch/design-tokens.css');
+
+:root {
+  --color-primary: #20d3ee;
+  --color-background-light: #f6f8f8;
+  --color-background-dark: #101f22;
+  --color-background-main: #18181b;
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #f1f5f9;
+  --color-text-muted: #94a3b8;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background-main);
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 28rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.app-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
-.header-left {
+.app-title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.header-icon {
+.app-icon {
   color: var(--color-primary);
-  width: 1.5rem;
-  height: 1.5rem;
+  font-size: 1.5rem;
 }
 
-.header-title {
+.app-title h1 {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.25rem;
   letter-spacing: 0.025em;
-  color: var(--color-text-heading);
+  color: var(--color-text-secondary);
 }
 
-.settings-button {
-  color: var(--color-text-secondary);
-  background: none;
+.settings-btn {
+  background: transparent;
   border: none;
+  color: var(--color-text-muted);
   cursor: pointer;
   padding: 0.5rem;
-  transition: color 0.2s;
+  border-radius: 0.5rem;
+  transition: color 0.2s ease;
 }
 
-.settings-button:hover {
+.settings-btn:hover {
   color: var(--color-primary);
 }
 
-.settings-button:focus {
+.settings-btn:focus {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-radius: 0.25rem;
 }
 
-.count-display {
+.settings-btn .material-symbols-outlined {
+  font-size: 1.5rem;
+}
+
+.counter-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,13 +111,20 @@
   padding: 2rem 0;
 }
 
-.count-value {
+.counter-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter-value {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 8rem;
   line-height: 1;
-  color: var(--color-text-display);
+  color: var(--color-text-primary);
   letter-spacing: -0.05em;
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .button-group {
@@ -71,57 +136,109 @@
   margin-top: 1rem;
 }
 
-.icon-button {
+.btn {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-body);
+}
+
+.btn:focus,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Primary button (default) */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-background-main);
+  border: 2px solid var(--color-primary);
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+/* Icon button (Decrement/Increment) */
+.btn-icon {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 3.5rem;
   height: 3.5rem;
-  border-radius: var(--radius-full);
+  border-radius: 50%;
   border: 2px solid var(--color-primary);
   background: transparent;
   color: var(--color-primary);
-  cursor: pointer;
-  transition: background-color 0.2s;
 }
 
-.icon-button:hover {
-  background-color: var(--color-primary-hover-bg);
+.btn-icon:hover {
+  background: rgba(32, 211, 238, 0.1);
 }
 
-.icon-button:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
+.btn-icon-text {
+  font-size: 1.875rem;
+  font-weight: 300;
 }
 
-.icon-button:active {
-  transform: scale(0.98);
-}
-
-.reset-button {
+/* Secondary button (Reset) */
+.btn-secondary {
   padding: 0.75rem 2rem;
-  border-radius: var(--radius-full);
+  border-radius: 9999px;
   border: 2px solid var(--color-primary);
   background: transparent;
   color: var(--color-primary);
-  font-family: var(--font-body);
   font-weight: 500;
-  font-size: 0.875rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.2s;
+  font-size: 0.875rem;
 }
 
-.reset-button:hover {
-  background-color: var(--color-primary-hover-bg);
+.btn-secondary:hover {
+  background: rgba(32, 211, 238, 0.1);
 }
 
-.reset-button:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
+/* Responsive design */
+@media (max-width: 480px) {
+  .app-container {
+    padding: 1.5rem;
+    gap: 2rem;
+  }
 
-.reset-button:active {
-  transform: scale(0.98);
+  .counter-value {
+    font-size: 5rem;
+  }
+
+  .button-group {
+    gap: 1rem;
+  }
+
+  .btn-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .btn-icon-text {
+    font-size: 1.5rem;
+  }
+
+  .btn-secondary {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.75rem;
+  }
+
+  .app-title h1 {
+    font-size: 1.125rem;
+  }
 }
