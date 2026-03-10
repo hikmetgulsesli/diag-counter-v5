@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react'
-import { Calculator, Settings, Plus, Minus } from 'lucide-react'
+import { Calculator, Settings } from 'lucide-react'
 import './App.css'
 
 function App() {

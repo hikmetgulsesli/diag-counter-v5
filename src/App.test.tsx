@@ -9,18 +9,18 @@ describe('App', () => {
 
   it('renders Counter App title', () => {
     render(<App />)
-    expect(screen.getByText('Counter App')).toBeInTheDocument()
+    expect(screen.getByText('Counter')).toBeInTheDocument()
   })
 
   it('renders increment button with correct aria-label', () => {
     render(<App />)
-    const incrementButton = screen.getByLabelText('Increase')
+    const incrementButton = screen.getByLabelText('Increase count by 1')
     expect(incrementButton).toBeInTheDocument()
   })
 
   it('renders decrement button with correct aria-label', () => {
     render(<App />)
-    const decrementButton = screen.getByLabelText('Decrease')
+    const decrementButton = screen.getByLabelText('Decrease count by 1')
     expect(decrementButton).toBeInTheDocument()
   })
 
@@ -39,7 +39,7 @@ describe('App', () => {
   // State transition tests
   it('increments counter when increment button is clicked', () => {
     render(<App />)
-    const incrementButton = screen.getByLabelText('Increase')
+    const incrementButton = screen.getByLabelText('Increase count by 1')
     
     fireEvent.click(incrementButton)
     expect(screen.getByText('1')).toBeInTheDocument()
@@ -47,7 +47,7 @@ describe('App', () => {
 
   it('decrements counter when decrement button is clicked', () => {
     render(<App />)
-    const decrementButton = screen.getByLabelText('Decrease')
+    const decrementButton = screen.getByLabelText('Decrease count by 1')
     
     fireEvent.click(decrementButton)
     expect(screen.getByText('-1')).toBeInTheDocument()
@@ -55,7 +55,7 @@ describe('App', () => {
 
   it('resets counter to 0 when reset button is clicked', () => {
     render(<App />)
-    const incrementButton = screen.getByLabelText('Increase')
+    const incrementButton = screen.getByLabelText('Increase count by 1')
     const resetButton = screen.getByText('Reset')
     
     // Increment a few times
@@ -72,7 +72,7 @@ describe('App', () => {
   // Edge case tests
   it('handles rapid clicking without debouncing issues', () => {
     render(<App />)
-    const incrementButton = screen.getByLabelText('Increase')
+    const incrementButton = screen.getByLabelText('Increase count by 1')
     
     // Rapid clicks
     for (let i = 0; i < 50; i++) {
@@ -84,7 +84,7 @@ describe('App', () => {
 
   it('handles negative values correctly', () => {
     render(<App />)
-    const decrementButton = screen.getByLabelText('Decrease')
+    const decrementButton = screen.getByLabelText('Decrease count by 1')
     
     // Click multiple times to go negative
     fireEvent.click(decrementButton)
@@ -96,7 +96,7 @@ describe('App', () => {
 
   it('updates UI immediately on state change', () => {
     render(<App />)
-    const incrementButton = screen.getByLabelText('Increase')
+    const incrementButton = screen.getByLabelText('Increase count by 1')
     
     // Click and verify immediate update
     fireEvent.click(incrementButton)
@@ -105,8 +105,8 @@ describe('App', () => {
 
   it('works after multiple increment-decrement cycles', () => {
     render(<App />)
-    const incrementButton = screen.getByLabelText('Increase')
-    const decrementButton = screen.getByLabelText('Decrease')
+    const incrementButton = screen.getByLabelText('Increase count by 1')
+    const decrementButton = screen.getByLabelText('Decrease count by 1')
     
     // +5 -3 = 2
     for (let i = 0; i < 5; i++) fireEvent.click(incrementButton)
