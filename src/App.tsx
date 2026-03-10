@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import './App.css'
 
 function App() {
@@ -8,18 +8,18 @@ function App() {
   const decrement = () => setCount(c => c - 1)
   const reset = () => setCount(0)
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>, action: () => void) => {
+  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLButtonElement>, action: () => void) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault()
       action()
     }
-  }
+  }, [])
 
   return (
     <main>
       <h1>Counter App</h1>
       <div className="card" role="region" aria-label="Counter display">
-        <h2 id="counter-label">Count: <span role="status" aria-live="polite" aria-atomic="true">{count}</span></h2>
+        <h2 role="status">Count: {count}</h2>
         <div className="button-group" role="group" aria-label="Counter controls">
           <button 
             onClick={decrement} 
